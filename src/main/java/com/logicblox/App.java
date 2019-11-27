@@ -1,6 +1,6 @@
-package com.logicblox;
+package com.simple;
 
-import com.logicblox.netty.NettyServer;
+import com.simple.netty.NettyServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

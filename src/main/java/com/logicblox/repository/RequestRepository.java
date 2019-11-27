@@ -1,6 +1,6 @@
-package com.logicblox.repository;
+package com.simple.repository;
 
-import com.logicblox.entity.RequestEntity;
+import com.simple.entity.RequestEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

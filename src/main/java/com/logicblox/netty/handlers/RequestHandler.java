@@ -1,7 +1,7 @@
-package com.logicblox.netty.handlers;
+package com.simple.netty.handlers;
 
-import com.logicblox.repository.RequestRepository;
-import com.logicblox.entity.RequestEntity;
+import com.simple.repository.RequestRepository;
+import com.simple.entity.RequestEntity;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;

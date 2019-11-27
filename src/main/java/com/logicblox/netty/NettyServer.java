@@ -1,4 +1,4 @@
-package com.logicblox.netty;
+package com.simple.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

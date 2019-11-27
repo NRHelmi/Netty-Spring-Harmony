@@ -1,6 +1,6 @@
-package com.logicblox.netty.config;
+package com.simple.netty.config;
 
-import com.logicblox.netty.ChannelInitializer;
+import com.simple.netty.ChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;

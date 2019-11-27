@@ -1,6 +1,6 @@
-package com.logicblox.netty;
+package com.simple.netty;
 
-import com.logicblox.netty.handlers.RequestHandler;
+import com.simple.netty.handlers.RequestHandler;
 import io.netty.channel.Channel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;

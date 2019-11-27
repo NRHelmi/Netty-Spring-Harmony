@@ -1,4 +1,4 @@
-package com.logicblox.entity;
+package com.simple.entity;
 
 import org.springframework.data.annotation.Id;
 
