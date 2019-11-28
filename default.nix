@@ -2,10 +2,9 @@ with (import <nixpkgs>{});
 
 let
   mavenBuild = buildMaven ./project-info.json;
-  build = pkgs.lib.overrideDerivation mavenBuild.build (oldAttrs: {
+  build = lib.overrideDerivation mavenBuild.build (oldAttrs: {
     buildPhase = ''
       mvn --offline --settings ${mavenBuild.settings} compile
-      mvn --version
     '';
     installPhase = ''
       mkdir $out
@@ -18,9 +17,13 @@ let
 in stdenv.mkDerivation rec {
   name = "netty-spring-harmony-${version}";
   version = "1.0.0";
+  buildInputs = [ makeWrapper ];
   src = ./.;
   buildCommand = ''
     mkdir -p $out/{lib,bin}
     cp ${build}/*.jar $out/lib/
+    makeWrapper ${jre}/bin/java \
+      $out/bin/run.sh --add-flags \
+      "-jar $out/lib/*.jar"
   '';
 }
