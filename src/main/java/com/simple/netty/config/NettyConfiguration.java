@@ -15,13 +15,13 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class NettyConfiguration {
 
-  @Value("${netty.tcp.port}")
+  @Value("${netty.tcp.port:8080}")
   private Integer tcpPort;
 
-  @Value("${netty.boss.thread.count}")
+  @Value("${netty.boss.thread.count:1}")
   private int bossCount;
 
-  @Value("${netty.worker.thread.count}")
+  @Value("${netty.worker.thread.count:1}")
   private int workerCount;
 
   @Autowired
