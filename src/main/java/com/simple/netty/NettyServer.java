@@ -13,11 +13,15 @@ public class NettyServer
 {
     @Autowired
     private ServerBootstrap serverBootstrap;
+
+    @Autowired
+    private Integer tcpPort;
+
     private Optional<Channel> serverChannel;
 
     public void start() {
         try {
-            serverChannel = Optional.of(serverBootstrap.bind(8080).sync().channel().closeFuture().sync().channel());
+            serverChannel = Optional.of(serverBootstrap.bind(tcpPort).sync().channel().closeFuture().sync().channel());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

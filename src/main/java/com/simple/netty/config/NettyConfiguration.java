@@ -7,12 +7,22 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class NettyConfiguration {
+
+  @Value("${netty.tcp.port}")
+  private Integer tcpPort;
+
+  @Value("${netty.boss.thread.count}")
+  private int bossCount;
+
+  @Value("${netty.worker.thread.count}")
+  private int workerCount;
 
   @Autowired
   ChannelInitializer channelInitializer;
@@ -28,13 +38,16 @@ public class NettyConfiguration {
     return b;
   }
 
+  @Bean(name = "tcpPort")
+  public Integer tcpPort() { return tcpPort; }
+
   @Bean(destroyMethod = "shutdownGracefully")
   public NioEventLoopGroup bossGroup() {
-    return new NioEventLoopGroup();
+    return new NioEventLoopGroup(bossCount);
   }
 
   @Bean(destroyMethod = "shutdownGracefully")
   public NioEventLoopGroup workerGroup() {
-    return new NioEventLoopGroup();
+    return new NioEventLoopGroup(workerCount);
   }
 }
