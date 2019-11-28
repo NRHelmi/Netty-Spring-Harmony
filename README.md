@@ -10,4 +10,7 @@ java -jar target/netty-spring-harmony-1.0.jar
 
 ## Build and run it using Nix
 
-Not yet nix packaged
+```
+nix-build
+result/bin/run.sh
+```
